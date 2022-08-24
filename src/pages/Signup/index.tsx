@@ -10,8 +10,29 @@ const Signup = () => {
   };
   return (
     <>
-      <Input handleChange={handleInputValue as ChangeEventHandler} />
-      <div>{inputValue}</div>
+      <div className='signup-page'>
+        <div className='signup-info-wrapper'>
+          <div className='signup-info-box'>
+            <label>이메일</label>
+            <Input handleChange={handleInputValue as ChangeEventHandler} />
+          </div>
+          <div className='signup-info-box'>
+            <label>비밀번호</label>
+            <Input handleChange={handleInputValue as ChangeEventHandler} />
+          </div>
+          <div className='signup-info-box'>
+            <label>비밀번호 확인</label>
+            <Input handleChange={handleInputValue as ChangeEventHandler} />
+          </div>
+          <div className='signup-info-box'>
+            <label>닉네임</label>
+            <Input handleChange={handleInputValue as ChangeEventHandler} />
+          </div>
+        </div>
+        <div className='signup-button-wrapper'>
+          <button>회원가입하기</button>
+        </div>
+      </div>
     </>
   );
 };
