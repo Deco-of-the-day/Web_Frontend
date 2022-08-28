@@ -1,35 +1,57 @@
-import React, { useState, ChangeEventHandler } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 
 import Input from '../../components/Input';
 
 const Signup = () => {
-  const [inputValue, setInputValue] = useState('' as string);
+  const [email, setEmail] = useState('' as string);
+  const [password, setPassword] = useState('' as string);
+  const [passwordCheck, setPasswordCheck] = useState('' as string);
+  const [nickname, setNickname] = useState('' as string);
 
-  const handleInputValue: Function = (e: Event) => {
-    setInputValue((e.target as HTMLInputElement).value);
-  };
   return (
     <>
-      <div className='signup-page'>
-        <div className='signup-info-wrapper'>
-          <div className='signup-info-box'>
+      <div className="signup-page">
+        <div className="signup-info-wrapper">
+          <div className="signup-info-box">
             <label>이메일</label>
-            <Input handleChange={handleInputValue as ChangeEventHandler} />
+            <Input
+              value={email}
+              handleChange={({ target }: ChangeEvent) => {
+                setEmail((target as HTMLInputElement).value);
+              }}
+            />
           </div>
-          <div className='signup-info-box'>
+          <div className="signup-info-box">
             <label>비밀번호</label>
-            <Input handleChange={handleInputValue as ChangeEventHandler} />
+            <Input
+              value={password}
+              type="password"
+              handleChange={({ target }: ChangeEvent) => {
+                setPassword((target as HTMLInputElement).value);
+              }}
+            />
           </div>
-          <div className='signup-info-box'>
+          <div className="signup-info-box">
             <label>비밀번호 확인</label>
-            <Input handleChange={handleInputValue as ChangeEventHandler} />
+            <Input
+              value={passwordCheck}
+              type="password"
+              handleChange={({ target }: ChangeEvent) => {
+                setPasswordCheck((target as HTMLInputElement).value);
+              }}
+            />
           </div>
-          <div className='signup-info-box'>
+          <div className="signup-info-box">
             <label>닉네임</label>
-            <Input handleChange={handleInputValue as ChangeEventHandler} />
+            <Input
+              value={nickname}
+              handleChange={({ target }: ChangeEvent) => {
+                setNickname((target as HTMLInputElement).value);
+              }}
+            />
           </div>
         </div>
-        <div className='signup-button-wrapper'>
+        <div className="signup-button-wrapper">
           <button>회원가입하기</button>
         </div>
       </div>
