@@ -20,6 +20,7 @@ const Signup = () => {
                 setEmail((target as HTMLInputElement).value);
               }}
             />
+            <div></div>
           </div>
           <div className="signup-info-box">
             <label>비밀번호</label>
