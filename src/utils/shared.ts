@@ -6,7 +6,12 @@ export const isEmail = (val: string): boolean => {
 };
 
 export const isPassword = (val: string): boolean => {
-  const regExp = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+  const regExp = /^.*(?=^.{8,20}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+  return regExp.test(val);
+};
+
+export const isNickname = (val: string): boolean => {
+  const regExp = /^[0-9a-zA-Z가-힣]{2,8}$/;
   return regExp.test(val);
 };
 
