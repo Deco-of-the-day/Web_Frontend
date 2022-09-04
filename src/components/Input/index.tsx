@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({
       type={type}
       placeholder={placeHolder}
       onChange={handleChange}
-    ></input>
+    />
   );
 };
 export default Input;
