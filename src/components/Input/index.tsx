@@ -1,12 +1,15 @@
 import React, { ChangeEvent } from 'react';
 
-interface InputProps {
+type InputProps = {
+  name?: string;
   value?: string;
   type?: string;
   placeHolder?: string;
   handleChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-}
+};
+
 const Input: React.FC<InputProps> = ({
+  name,
   value,
   type,
   placeHolder,
@@ -14,6 +17,7 @@ const Input: React.FC<InputProps> = ({
 }) => {
   return (
     <input
+      name={name}
       value={value}
       type={type}
       placeholder={placeHolder}

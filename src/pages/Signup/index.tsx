@@ -2,52 +2,57 @@ import React, { useState, ChangeEvent } from 'react';
 
 import Input from '../../components/Input';
 
-const Signup = () => {
-  const [email, setEmail] = useState('' as string);
-  const [password, setPassword] = useState('' as string);
-  const [passwordCheck, setPasswordCheck] = useState('' as string);
-  const [nickname, setNickname] = useState('' as string);
+// type 어디다가 두고 관리할지 논의하기
+// 근데 type이랑 interface 차이는?
+type UserInfo = {
+  email: string;
+  password: string;
+  passwordCheck: string;
+  nickname: string;
+};
 
+const Signup = () => {
+  const [userInfo, setUserInfo] = useState({} as UserInfo);
+
+  const handleInputChange = (e: ChangeEvent) => {
+    const { name, value } = e.target as HTMLInputElement;
+    setUserInfo({ ...userInfo, [name]: value });
+  };
   return (
     <div className="signup-page">
       <div className="signup-info-wrapper">
         <div className="signup-info-box">
           <label>이메일</label>
           <Input
-            value={email}
-            handleChange={({ target }: ChangeEvent) => {
-              setEmail((target as HTMLInputElement).value);
-            }}
+            name="email"
+            value={userInfo.email}
+            handleChange={(evt) => handleInputChange(evt)}
           />
-          <div />
         </div>
         <div className="signup-info-box">
           <label>비밀번호</label>
           <Input
-            value={password}
+            name="password"
+            value={userInfo.password}
             type="password"
-            handleChange={({ target }: ChangeEvent) => {
-              setPassword((target as HTMLInputElement).value);
-            }}
+            handleChange={handleInputChange}
           />
         </div>
         <div className="signup-info-box">
           <label>비밀번호 확인</label>
           <Input
-            value={passwordCheck}
+            name="passwordCheck"
+            value={userInfo.passwordCheck}
             type="password"
-            handleChange={({ target }: ChangeEvent) => {
-              setPasswordCheck((target as HTMLInputElement).value);
-            }}
+            handleChange={handleInputChange}
           />
         </div>
         <div className="signup-info-box">
           <label>닉네임</label>
           <Input
-            value={nickname}
-            handleChange={({ target }: ChangeEvent) => {
-              setNickname((target as HTMLInputElement).value);
-            }}
+            name="nickname"
+            value={userInfo.nickname}
+            handleChange={handleInputChange}
           />
         </div>
       </div>
