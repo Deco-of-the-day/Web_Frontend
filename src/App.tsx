@@ -1,12 +1,14 @@
 import React from 'react';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import Signin from './pages';
+import Signin from './pages/Signin';
 
 import './App.css';
 
 function App() {
   return (
-    <GoogleOAuthProvider clientId="478556711739-o3eurncgjtij7saoohe1dmhl5ftu107k.apps.googleusercontent.com">
+    <GoogleOAuthProvider
+      clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID as string}
+    >
       <div className="App">
         <Signin />
       </div>
